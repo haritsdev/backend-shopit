@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, Route } from 'react-router-dom';
 import '../../App.css';
 import Search from './Search';
 const Header = () => {
@@ -6,7 +7,9 @@ const Header = () => {
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
         <div className="navbar-brand">
-          <img src="/images/shopit_logo.png" />
+          <Link to="/">
+            <img src="/images/shopit_logo.png" alt="logo" />
+          </Link>
         </div>
         <button
           className="navbar-toggler bg-light"
@@ -21,7 +24,8 @@ const Header = () => {
           <i className="fa fa-bars" aria-hidden="true"></i>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <Search />
+          <Route render={({ history }) => <Search history={history} />} />
+
           <ul className="navbar-nav mb-2 mb-lg-0 col-lg-3  d-flex justify-content-end gap-4 align-items-center">
             <li className="nav-item d-flex gap-2">
               <span id="cart" className="mr-5">
