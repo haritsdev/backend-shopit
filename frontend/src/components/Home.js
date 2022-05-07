@@ -15,6 +15,8 @@ const Home = () => {
     (state) => state.products
   );
 
+  const isMe = useSelector((state) => state.products);
+
   useEffect(() => {
     if (error) {
       return alert.error('ERROR');
@@ -26,7 +28,7 @@ const Home = () => {
     setCurrentPage(pageNumber);
   }
 
-  console.log(resPerPage);
+  console.log(isMe);
 
   return (
     <Fragment>

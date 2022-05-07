@@ -17,7 +17,8 @@ export const productsReducer = (state = { products: [] }, action) => {
       return {
         loading: false,
         products: action.payload.products,
-        productsCount: action.payload.productsCount,
+        productCount: action.payload.productCount,
+        resPerPage: action.payload.resPerPage,
       };
     }
 
@@ -34,27 +35,26 @@ export const productsReducer = (state = { products: [] }, action) => {
   }
 };
 
-
-export const productDetailReducer = (state = { product:{} },action)=>{
-  switch(action.type){
+export const productDetailReducer = (state = { product: {} }, action) => {
+  switch (action.type) {
     case PRODUCT_DETAILS_REQUEST:
       return {
         ...state,
-        loading:true
-      }
+        loading: true,
+      };
 
     case PRODUCT_DETAILS_SUCCESS:
-        return {
-          loading:false,
-          product:action.payload
-        }
+      return {
+        loading: false,
+        product: action.payload,
+      };
 
     case PRODUCT_DETAILS_FAIL:
-        return {
-          loading:false,
-          error:action.payload
-         }
+      return {
+        loading: false,
+        error: action.payload,
+      };
     default:
       return state;
   }
-}
+};
