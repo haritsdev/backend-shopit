@@ -1,9 +1,5 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
-<<<<<<< HEAD
-import Search from './Search';
-=======
->>>>>>> part_4_pagination_and_filter
 import '../../App.css';
 import Search from './Search';
 const Header = () => {
@@ -29,10 +25,6 @@ const Header = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <Route render={({ history }) => <Search history={history} />} />
-<<<<<<< HEAD
-=======
-
->>>>>>> part_4_pagination_and_filter
           <ul className="navbar-nav mb-2 mb-lg-0 col-lg-3  d-flex justify-content-end gap-4 align-items-center">
             <li className="nav-item d-flex gap-2">
               <span id="cart" className="mr-5">

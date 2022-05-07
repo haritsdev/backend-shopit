@@ -11,11 +11,7 @@ const App = () => {
       <Header />
       <div className="container-fluid">
         <Route path="/" component={Home} exact />
-<<<<<<< HEAD
-        <Route path="/search/:keyword" component={Home} exact />
-=======
         <Route path="/search/:keyword" component={Home} />
->>>>>>> part_4_pagination_and_filter
         <Route path="/product/:id" component={ProductDetails} exact />
       </div>
       <Footer />
