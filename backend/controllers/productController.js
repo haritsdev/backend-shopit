@@ -16,8 +16,7 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 
 //* Get all products => /api/v1/products * QUERY STRING /api/v1/products?keyword=apple
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
-
-  const resPerPage = 4;
+  const resPerPage = 8;
   const productCount = await Product.countDocuments();
 
   const apiFeatures = new APIFeatures(Product.find(), req.query)
@@ -26,7 +25,7 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
     .pagination(resPerPage);
   const products = await apiFeatures.query;
 
-  setTimeout(()=>{
+  setTimeout(() => {
     res.status(200).json({
       success: true,
       message: 'Berhasil menampilkan data produk',
@@ -34,8 +33,7 @@ exports.getProducts = catchAsyncErrors(async (req, res, next) => {
       productCount,
       products,
     });
-  },1000)
- 
+  }, 1000);
 });
 
 //* Get single product details => /api/v1/product/:id
