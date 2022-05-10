@@ -35,9 +35,9 @@ const Header = () => {
               </span>
             </li>
             <li className="nav-item ">
-              <button className="btn " id="login_btn">
+              <Link to="/login" className="btn ml-4" id="login_btn">
                 Login
-              </button>
+              </Link>
             </li>
           </ul>
         </div>

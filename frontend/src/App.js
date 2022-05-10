@@ -4,6 +4,7 @@ import Home from './components/Home';
 import Footer from './components/layout/Footer';
 import Header from './components/layout/Header';
 import ProductDetails from './components/layout/product/ProductDetails';
+import Login from './components/auth/Login';
 import './App.css';
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/" component={Home} exact />
         <Route path="/search/:keyword" component={Home} />
         <Route path="/product/:id" component={ProductDetails} exact />
+        <Route path="/login" component={Login} />
       </div>
       <Footer />
     </Router>
