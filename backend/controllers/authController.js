@@ -11,7 +11,7 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
   try {
     const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
       folder: 'shopit/avatars',
-      width: 150,
+      width: 500,
       quality: 'auto',
       crop: 'scale',
     });

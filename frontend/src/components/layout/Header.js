@@ -72,11 +72,13 @@ const Header = () => {
                     className="avatar avatar nav  d-flex  justify-content-between bg-success"
                     style={{ flexDirection: 'column' }}
                   >
-                    <img
-                      src={user.avatar && user.avatar.url}
+                    {/* <img
+                      src={
+                        user?.avatar !== null ? user?.avatar?.url : 'NO image'
+                      }
                       alt={user && user.name}
                       style={{ borderRadius: '50%' }}
-                    />
+                    /> */}
                     <span
                       style={{
                         display: 'flex',
@@ -99,7 +101,7 @@ const Header = () => {
                           textOverflow: 'ellipsis',
                         }}
                       >
-                        {user && user.name.substring(0, 7)}sdsdsdasd
+                        {user?.name}sdsdsdasd
                       </div>
                     </span>
                   </figure>
