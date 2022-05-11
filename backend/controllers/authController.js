@@ -3,23 +3,33 @@ const ErrorHandler = require('../utils/errorHandler');
 const catchAsyncErrors = require('../middleware/catchAsyncError');
 const sendToken = require('../utils/jwtToken');
 const sendEmail = require('../utils/sendEmail');
-
+const cloudinary = require('cloudinary');
 const crypto = require('crypto');
 
 //* Register a user =>/api/v1/register
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
-  const { email, name, password } = req.body;
+  try {
+    const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
+      folder: 'shopit/avatars',
+      width: 150,
+      quality: 'auto',
+      crop: 'scale',
+    });
+    const { email, name, password } = req.body;
 
-  const user = await User.create({
-    name,
-    email,
-    password,
-    avatar: {
-      public_id: 'teguhris',
-      url: 'https://res.cloudinary.com/teguhris/image/upload/v1648146313/bookit/avatars/d5sxzdfsoz4o2ejkox4j.gif',
-    },
-  });
-  sendToken(user, 200, res);
+    const user = await User.create({
+      name,
+      email,
+      password,
+      avatar: {
+        public_id: result.public_id,
+        url: result.secure_url,
+      },
+    });
+    sendToken(user, 200, res);
+  } catch (error) {
+    res.status(401).json({ error: error });
+  }
 });
 
 //* Login User => /api/v1/login
