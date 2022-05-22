@@ -61,7 +61,7 @@ const Header = () => {
                 }}
               >
                 <li
-                  class="btn dropdown-toggle text-white"
+                  className="btn dropdown-toggle text-white"
                   type="button"
                   id="dropdownMenuButton1"
                   data-bs-toggle="dropdown"
@@ -107,7 +107,10 @@ const Header = () => {
                   </figure>
                   {/* <div className="ml-5">&nbsp;</div> */}
                 </li>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <ul
+                  className="dropdown-menu"
+                  aria-labelledby="dropdownMenuButton1"
+                >
                   {user && user.role !== 'admin' ? (
                     <Link className="dropdown-item" to="/orders/me">
                       Orders
